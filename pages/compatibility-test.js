@@ -69,7 +69,7 @@ export default function Index() {
     <div>
       <Layout />
       <div style={Styles.heroContent}>
-        <h1>Let's calculate your compatibility.</h1>
+        <h1>Let's test your compatibility.</h1>
         <div className={pageStyles.inputContainer}>
           <Spacer height="1" />
           <label htmlFor="address1">Address #1</label>
@@ -101,7 +101,7 @@ export default function Index() {
           />
         </div>
         <Spacer height="2" />
-        <Button onClick={handleSubmit} text="Calculate" color="green" />
+        <Button onClick={handleSubmit} text="Test" color="green" />
 
         {/* Show loading GIF while waiting for the response */}
         {loading && (
