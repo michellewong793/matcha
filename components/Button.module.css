@@ -1,0 +1,33 @@
+/* Button.module.css */
+
+.button {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  .button.green {
+    color: #3C5642;
+    background-color: #ABE895;
+  }
+  
+  .button.green:hover {
+    background-color: #A8D49F; /* Darker green on hover */
+  }
+  
+  .button.pink {
+    color: #552251;
+    background-color: #EF94E9;
+  }
+  
+  .button.pink:hover {
+    background-color: #D68CC2; /* Darker pink on hover */
+  }

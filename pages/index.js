@@ -2,6 +2,8 @@ import Layout from "../components/Layout";
 import Styles from "../components/Theme";
 import Button from "../components/Button";
 import Spacer from "../components/Spacer";
+import homeStyles from "../components/Home.module.css"; // Correct the import if needed
+
 // Questions
 const QUESTIONS = [
   "Do you prefer quiet dates?",
@@ -21,18 +23,13 @@ export default function Index() {
     <div style={Styles.appContainer}>
       <Layout />
       <div style={Styles.heroContent}>
-        <h1 style={Styles.heroHeading}>find your match-a</h1>
+        <h1 style={Styles.heroHeading}>
+          find your <span className={homeStyles.wiggle}>match-a</span>
+        </h1>{" "}
         <p style={Styles.heroText}>
-          <i>
-           privately
-          </i>
+          <i>Life is short—dare to find your true love without holding back!</i>
         </p>
-        <p style={Styles.heroText}>
-          <i>
-            because life is <i>short</i> and then you{" "}
-            <i>die, so you deserve a verifiable true love, without feeling some type of way about sharing your true preferences </i>
-          </i>
-        </p>
+       
         <Spacer height="4" />
         <div style={{ margin: "20px 0" }}>
           <Button link="/submit-score" text="Create Profile" color="green" />
@@ -40,16 +37,22 @@ export default function Index() {
         <div>
           <Button link="/browse-matches" text="Find Them" color="pink" />
         </div>
-
         <Spacer height="2" />
         <hr />
         <Spacer height="2" />
         <h2> how does it work? </h2>
+        
         <p>
           {" "}
-          we use <a style={Styles.link} href="https://docs.leo-lang.org/getting_started">leo</a> to
-          deploy a program that takes your inputs in the form of booleans, and
-          adds it to a mapping of the program.{" "}
+          we use{" "}
+          <a
+            style={Styles.link}
+            href="https://docs.leo-lang.org/getting_started"
+          >
+          the leo programming language
+          </a>{" "}
+          to deploy a program that takes your inputs in the form of booleans,
+          and adds it to a mapping of the program.{" "}
         </p>
         <p>
           {" "}
@@ -58,6 +61,7 @@ export default function Index() {
           generate a score that indicates the compatibility between you and the
           match, keeping your preferences private but your compatibility public
         </p>
+       
       </div>
     </div>
   );

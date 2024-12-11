@@ -2,6 +2,7 @@ import Layout from "../components/Layout";
 import Styles from "../components/Theme";
 import Spacer from "../components/Spacer";
 import React, { useState } from "react";
+import pageStyles from "../components/SubmitScore.module.css";
 
 const QUESTIONS = [
   "Do you prefer quiet dates?",
@@ -52,50 +53,53 @@ export default function Index() {
     <div>
       <Layout />
       <div style={Styles.content}>
-        <div style={Styles.inputContainer}>
-          <p>
-            Step 1: Please enter a valid public key.
-          </p>
+        <div className={pageStyles.inputContainer}>
+          <p>Step 1: Please enter a valid public key.</p>
           <Spacer height="1" />
-          <label for="public-key">Public Key</label>
-
+          <label htmlFor="public-key">Public Key</label>
+          <Spacer height="1" />
           <input
             type="text"
             id="public-key"
             name="public-key"
             placeholder="Enter your public key"
             required
+            className={pageStyles.inputbox} /* Correct usage */
           />
         </div>
         <Spacer height="4" />
 
-        <div style={Styles.inputContainer}>
+        <div className={pageStyles.inputContainer}>
           <p>
             Step 2: Please enter your private key. We don't store this btw, just
             for executing the program.
           </p>
           <Spacer height="1" />
-          <label for="private-key">Private Key</label>
+          <label htmlFor="private-key">Private Key</label>
+          <Spacer height="1" />
+
           <input
             type="text"
             id="private-key"
             name="private-key"
             placeholder="Enter your private key"
             required
+            className={pageStyles.inputbox} /* Correct usage */
           />
         </div>
         <Spacer height="4" />
 
-        <div style={Styles.inputContainer}>
+        <div className={pageStyles.inputContainer}>
           <p>Step 3: Please enter a fee for executing the program.</p>
           <Spacer height="1" />
-          <label for="private-key">Fee</label>
+          <label htmlFor="private-key">Fee</label> <Spacer height="1" />
           <input
             type="text"
             id="fee"
             name="fee"
             placeholder="Enter your program fee"
             required
+            className={pageStyles.inputbox} /* Correct usage */
           />
         </div>
         <Spacer height="4" />
@@ -120,6 +124,7 @@ export default function Index() {
                     value={1}
                     onChange={() => handleInputChange(index, 1)}
                     required
+                    className={pageStyles.radioButton} /* Correct usage */
                   />
                   Yes
                 </label>
@@ -129,6 +134,7 @@ export default function Index() {
                     name={`question-${index}`}
                     value={0}
                     onChange={() => handleInputChange(index, 0)}
+                    className={pageStyles.radioButton} /* Correct usage */
                   />
                   No
                 </label>

@@ -10,7 +10,7 @@ let styles = {
     gap: "4rem" /* Space between grid items */,
     margin: "0 auto", 
     maxWidth: "75%",
-    
+
    
   },
 
@@ -22,6 +22,13 @@ let styles = {
     padding: "1rem",
     borderRadius: "9px",
     backgroundColor: "#6BA46A",
+  },
+  
+  inputBox: {
+    padding: "1rem",
+    width: "fit-content",
+    border: "1px solid white",
+    backgroundColor: "#EF94E9"
   },
 
   pinkText: {
