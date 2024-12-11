@@ -1,6 +1,6 @@
 let styles = {
   appContainer: {
-    backgroundColor: "#3C5642",
+    color: "white",
   },
   matchPageContainer: {
     display: "grid",
@@ -19,14 +19,20 @@ let styles = {
   },
 
   heroHeading: {
-    fontSize: "64px",
-    color: "white"
+    fontSize: "76px",
+    color: "white",
+    marginBottom: "0.5rem",
   },
   heroText: {
     color: "white",
-    fontSize: "54px"
+    fontSize: "24px",
+    fontWeight: "600",
+    marginTop: "0",
   },
-
+  link: {
+    color: "#EF94E9",
+    textDecoration: "none",
+  },
   inputContainer: {
     width: "50%",
     margin: "0 auto",
@@ -38,15 +44,8 @@ let styles = {
     fontSize: "16px",
   },
 
-  header: {},
-
-  link: {
-    fontSize: "14px",
-    textDecoration: "none",
-  },
-
   content: {
-    marginTop: "20rem",
+    marginTop: "15rem",
     paddingLeft: "1rem",
     paddingRight: "1rem",
     paddingBottom: "1rem",

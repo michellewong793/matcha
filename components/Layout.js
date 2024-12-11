@@ -21,7 +21,7 @@ const footer = {
   left: 0,
   bottom: 0,
   width: "100%",
-  height: "1rem",
+ 
   color: "white",
   display: "flex",
   justifyContent: "center",
@@ -31,13 +31,14 @@ const link = {
   textDecoration: 'none',
   color: "#ABE895",
   fontFamily: "Inter",
+  textTransform: "uppercase",
 }
 
 const Header = () => (
   <div style={header}>
-    <img src="/matchalogo.svg"/>
+    <img src="/matchaLogoSmall.svg"/>
     <a style={link} href="/"> Home</a>
-    <a style={link} href="/submit-score"> Submit your score </a>
+    <a style={link} href="/submit-score"> Get Started </a>
     <a style={link} href="/browse-matches"> Browse Matches </a>
   </div>
 );
@@ -51,6 +52,8 @@ const Layout = () => {
   );
 };
 
-const Footer = () => <div style={footer}></div>;
+const Footer = () => <div style={footer}>
+  <p> make dating chill again </p>
+</div>;
 
 export default Layout;
