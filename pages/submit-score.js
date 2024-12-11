@@ -3,6 +3,7 @@ import Styles from "../components/Theme";
 import Spacer from "../components/Spacer";
 import React, { useState } from "react";
 import pageStyles from "../components/SubmitScore.module.css";
+import Button from "../components/Button";
 
 const QUESTIONS = [
   "Do you prefer quiet dates?",
@@ -28,7 +29,8 @@ export default function Index() {
     });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
     try {
       // Prepare user address and hash for the API call
       const userAddress = document.getElementById("public-key").value; // Get the user address from input
@@ -66,73 +68,18 @@ export default function Index() {
   };
 
   return (
-    <div>
+    <div className={pageStyles.testContainer}>
       <Layout />
-      <div className={pageStyles.stepContainer}>
-        <div className={pageStyles.inputContainer}>
-          <p>Step 1: Please enter a valid public key.</p>
-          <Spacer height="1" />
-          <label htmlFor="public-key">Public Key</label>
-          <Spacer height="1" />
-          <input
-            type="text"
-            id="public-key"
-            name="public-key"
-            placeholder="Enter your public key"
-            required
-            className={pageStyles.inputbox} // Correct usage
-          />
-        </div>
-        <Spacer height="4" />
+      <Spacer height="8"/>
+<h1> Take the test</h1> 
+      <p> Take the test, deploy your results onto a leo program, yes its public and yes they know what it might map to but we could do some randomizing magic to make sure the inputs at least are mixed up :) </p>
 
-        <div className={pageStyles.inputContainer}>
-          <p>
-            Step 2: Please enter your private key. We don't store this btw, just
-            for executing the program.
-          </p>
-          <Spacer height="1" />
-          <label htmlFor="private-key">Private Key</label>
-          <Spacer height="1" />
-
-          <input
-            type="text"
-            id="private-key"
-            name="private-key"
-            placeholder="Enter your private key"
-            required
-            className={pageStyles.inputbox} // Correct usage
-          />
-        </div>
-        <Spacer height="4" />
-
-        <div className={pageStyles.inputContainer}>
-          <p>Step 3: Please enter a fee for executing the program.</p>
-          <Spacer height="1" />
-          <label htmlFor="fee">Fee</label>
-          <Spacer height="1" />
-          <input
-            type="text"
-            id="fee"
-            name="fee"
-            placeholder="Enter your program fee"
-            required
-            className={pageStyles.inputbox} // Correct usage
-          />
-        </div>
-        <Spacer height="4" />
-
-        <span>Step 4: State your preferences. Let's find your match!</span>
-        <Spacer height="1" />
-
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleSubmit();
-          }}
-        >
+      <Spacer height="4"/>
+      <form onSubmit={handleSubmit}>
           {QUESTIONS.map((question, index) => (
             <div key={index}>
-              <label>{question}</label>
+              <Spacer height="1" />
+              <label className={pageStyles.questionLabel}>{question}</label>
               <div>
                 <label>
                   <input
@@ -143,7 +90,7 @@ export default function Index() {
                     required
                     className={pageStyles.radioButton} // Correct usage
                   />
-                  Yes
+                  <span className={pageStyles.option}> Yes </span>
                 </label>
                 <label>
                   <input
@@ -153,15 +100,69 @@ export default function Index() {
                     onChange={() => handleInputChange(index, "0")} // Store "0" for "No"
                     className={pageStyles.radioButton} // Correct usage
                   />
-                  No
+                  <span className={pageStyles.option}> No </span>
                 </label>
               </div>
             </div>
           ))}
           <Spacer height="1" />
-
-          <button type="submit">Submit</button>
+          <Button type="submit" text="Submit" color="green" />{" "}
+          {/* Change to type="submit" */}
         </form>
+        <Spacer height="4"/>
+      <div className={pageStyles.stepContainer}>
+        <div className={pageStyles.inputContainer}>
+          <p>Please enter a valid public key.</p>
+          <Spacer height="1" />
+          <label htmlFor="public-key">Public Key</label>
+          <Spacer height="1" />
+          <input
+            type="text"
+            id="public-key"
+            name="public-key"
+            placeholder="Enter your public key"
+            required
+            className={pageStyles.inputbox} 
+          />
+        </div>
+        <Spacer height="4" />
+        <div className={pageStyles.stepContainer}>
+        <div className={pageStyles.inputContainer}>
+          <p>Please enter a valid private key.</p>
+          <Spacer height="1" />
+          <label htmlFor="private-key">Private Key</label>
+          <Spacer height="1" />
+          <input
+            type="text"
+            id="public-key"
+            name="public-key"
+            placeholder="Enter your private key"
+            required
+            className={pageStyles.inputbox} // Correct usage
+          />
+        </div>
+        </div>
+        <Spacer height="4" />
+        <div className={pageStyles.stepContainer}>
+          <div className={pageStyles.inputContainer}>
+            <p>Please enter a fee for executing the program.</p>
+            <Spacer height="1" />
+            <label htmlFor="fee">Fee</label>
+            <Spacer height="1" />
+            <input
+              type="text"
+              id="fee"
+              name="fee"
+              placeholder="Enter your program fee"
+              required
+              className={pageStyles.inputbox} // Correct usage
+            />
+          </div>
+        </div>
+        <Spacer height="16" />
+
+
+       
 
         {response && (
           <div>

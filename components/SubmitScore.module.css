@@ -1,3 +1,15 @@
+.testContainer {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    color: white;
+}
+
+.testContainer p {
+font-size: 24px;
+max-width: 700px;
+}
+
 .stepContainer {
     display: flex;
     flex-direction: column;
@@ -14,7 +26,11 @@
     color: #921598;
   }
 
-
+.questionLabel { 
+    font-size: 16px;
+    color: white;
+    margin-bottom: 1rem;
+}
   .inputLabel { 
     font-size: 16px;
     text-transform: uppercase;
@@ -217,7 +233,10 @@
   }
   
   
-  
+  .option {
+    color: white;
+  }
+
   input[type="radio"]:checked + .radioButton {
     background: white; /* Color when selected */
   }
