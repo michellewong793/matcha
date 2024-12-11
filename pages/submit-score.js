@@ -30,20 +30,34 @@ export default function Index() {
 
   const handleSubmit = async () => {
     try {
-      // Sending user preferences to Aleo network API
-      const leoInput = Object.entries(answers).map(([key, value]) => ({
-        question: key,
-        answer: value,
-      }));
-      const result = await axios.post(
-        "https://aleo-api-endpoint.com/process-preferences",
-        {
-          preferences: leoInput,
-        }
-      );
-
-      // Assuming the API returns compatibility mappings
-      setResponse(result.data);
+      // Prepare user address and hash for the API call
+      const userAddress = document.getElementById("public-key").value; // Get the user address from input
+      
+      // Generate the hash array based on the user's answers
+      const hash = QUESTIONS.map((_, index) => answers[index] !== undefined ? answers[index] : "0"); // Default to "0" if no answer is provided
+  
+      // Send a POST request to /api/set-hash using fetch
+      const response = await fetch("/api/set-hash", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", // Set the content type to JSON
+        },
+        body: JSON.stringify({
+          userAddress,
+          hash,
+        }),
+      });
+  
+      // Check if the response is okay (status in the range 200-299)
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      // Parse the response data
+      const result = await response.json();
+  
+      // Set response data from the API
+      setResponse(result);
     } catch (error) {
       console.error("Error submitting data:", error);
     }
@@ -64,7 +78,7 @@ export default function Index() {
             name="public-key"
             placeholder="Enter your public key"
             required
-            className={pageStyles.inputbox} /* Correct usage */
+            className={pageStyles.inputbox} // Correct usage
           />
         </div>
         <Spacer height="4" />
@@ -84,7 +98,7 @@ export default function Index() {
             name="private-key"
             placeholder="Enter your private key"
             required
-            className={pageStyles.inputbox} /* Correct usage */
+            className={pageStyles.inputbox} // Correct usage
           />
         </div>
         <Spacer height="4" />
@@ -92,19 +106,20 @@ export default function Index() {
         <div className={pageStyles.inputContainer}>
           <p>Step 3: Please enter a fee for executing the program.</p>
           <Spacer height="1" />
-          <label htmlFor="private-key">Fee</label> <Spacer height="1" />
+          <label htmlFor="fee">Fee</label> 
+          <Spacer height="1" />
           <input
             type="text"
             id="fee"
             name="fee"
             placeholder="Enter your program fee"
             required
-            className={pageStyles.inputbox} /* Correct usage */
+            className={pageStyles.inputbox} // Correct usage
           />
         </div>
         <Spacer height="4" />
 
-        <span>Step 2: State your preferences. Let's find your match!</span>
+        <span>Step 4: State your preferences. Let's find your match!</span>
         <Spacer height="1" />
 
         <form
@@ -122,9 +137,9 @@ export default function Index() {
                     type="radio"
                     name={`question-${index}`}
                     value={1}
-                    onChange={() => handleInputChange(index, 1)}
+                    onChange={() => handleInputChange(index, "1")} // Store "1" for "Yes"
                     required
-                    className={pageStyles.radioButton} /* Correct usage */
+                    className={pageStyles.radioButton} // Correct usage
                   />
                   Yes
                 </label>
@@ -133,8 +148,8 @@ export default function Index() {
                     type="radio"
                     name={`question-${index}`}
                     value={0}
-                    onChange={() => handleInputChange(index, 0)}
-                    className={pageStyles.radioButton} /* Correct usage */
+                    onChange={() => handleInputChange(index, "0")} // Store "0" for "No"
+                    className={pageStyles.radioButton} // Correct usage
                   />
                   No
                 </label>
@@ -145,6 +160,13 @@ export default function Index() {
 
           <button type="submit">Submit</button>
         </form>
+
+        {response && (
+          <div>
+            <h3>Response:</h3>
+            <pre>{JSON.stringify(response, null, 2)}</pre>
+          </div>
+        )}
       </div>
     </div>
   );

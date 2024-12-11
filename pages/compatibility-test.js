@@ -4,21 +4,35 @@ import Spacer from "../components/Spacer";
 import React, { useState } from "react";
 import pageStyles from "../components/SubmitScore.module.css";
 import Button from "../components/Button";
-import axios from "axios";
 
 export default function Index() {
-  const [address1, setAddress1] = useState("");
-  const [address2, setAddress2] = useState("");
+  const [address1, setAddress1] = useState("aleo1cewxkdjmuued69axf7mke0thuhxww324rs48qae76cgj0kwtcuzsjep2w4");
+  const [address2, setAddress2] = useState("aleo1jcsyvzul83038yezal68hl3rnmnuwmgh2j76xrrptr8ca9wswcrs0qttxr");
   const [response, setResponse] = useState(null);
 
   const handleSubmit = async () => {
     try {
       // Call the compare-users API with the addresses
-      const result = await axios.post("/api/compare-users", {
-        userA: address1,  // Update this to match your API parameter
-        userB: address2,  // Update this to match your API parameter
+      const response = await fetch("/api/compare-users", {
+        method: "POST", // Specify the method as POST
+        headers: {
+          "Content-Type": "application/json", // Set the Content-Type to application/json
+        },
+        body: JSON.stringify({ // Convert the data to JSON
+          userA: address1,
+          userB: address2,
+        }),
       });
-      setResponse(result.data); // Store the response from the API
+  
+      if (!response.ok) {
+        // Handle non-2xx HTTP responses
+        const errorData = await response.json();
+        throw new Error(errorData.message || "Something went wrong.");
+      }
+  
+      const result = await response.json(); // Parse the JSON response
+      console.log(result);
+      setResponse(result); // Set the response in state
     } catch (error) {
       console.error("Error comparing users:", error);
       setResponse({ message: "Error comparing users. Please try again." });
