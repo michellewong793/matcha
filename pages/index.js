@@ -27,15 +27,15 @@ export default function Index() {
           find your <span className={homeStyles.wiggle}>match-a</span>
         </h1>{" "}
         <p style={Styles.heroText}>
-          <i>Life is short—find someone special while preserving your privacy</i>
+          <i>verify compatibility on private inputs</i>
         </p>
        
         <Spacer height="4" />
         <div style={{ margin: "20px 0" }}>
-          <Button link="/submit-score" text="Create Profile" color="green" />
+          <Button link="/submit-score" text="Take the test" color="green" />
         </div>
         <div>
-          <Button link="/browse-matches" text="Find Them" color="pink" />
+          <Button link="/compatibility-test" text="Compare" color="pink" />
         </div>
         <Spacer height="2" />
         <hr />

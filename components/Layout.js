@@ -21,9 +21,9 @@ const Header = () => {
           Get Started
         </a>
       </Link>
-      <Link href="/browse-matches">
-        <a className={`${styles.link} ${router.pathname === '/browse-matches' ? styles.active : ''}`}>
-          Browse Matches
+      <Link href="/compatibility-test">
+        <a className={`${styles.link} ${router.pathname === '/compatibility-test' ? styles.active : ''}`}>
+          Test Compatibility
         </a>
       </Link>
     </div>

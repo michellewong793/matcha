@@ -13,13 +13,15 @@ export default function Index() {
 
   const handleSubmit = async () => {
     try {
-      const result = await axios.post("http://localhost:3001/compare-users", {
-        address1,
-        address2,
+      // Call the compare-users API with the addresses
+      const result = await axios.post("/api/compare-users", {
+        userA: address1,  // Update this to match your API parameter
+        userB: address2,  // Update this to match your API parameter
       });
       setResponse(result.data); // Store the response from the API
     } catch (error) {
       console.error("Error comparing users:", error);
+      setResponse({ message: "Error comparing users. Please try again." });
     }
   };
 
@@ -27,7 +29,7 @@ export default function Index() {
     <div>
       <Layout />
       <div style={Styles.heroContent}>
-        <h1> Let's calculate your compatibility. </h1>
+        <h1>Let's calculate your compatibility.</h1>
         <div className={pageStyles.inputContainer}>
           <Spacer height="1" />
           <label htmlFor="address1">Address #1</label>
