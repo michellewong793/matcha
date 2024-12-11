@@ -59,7 +59,7 @@ export default function Index() {
           />
         </div>
         <Spacer height="2" />
-        <Button onClick={handleSubmit} text="Calculate" color="pink" />
+        <Button onClick={handleSubmit} text="Calculate" color="green" />
         {response && (
           <div>
             <p>{response.message}</p>
