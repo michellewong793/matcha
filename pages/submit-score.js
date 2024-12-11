@@ -10,11 +10,11 @@ const QUESTIONS = [
   "Do you enjoy cooking?",
   "Do you like pets?",
   "Do you prefer mornings over nights?",
-  "Do you enjoy outdoor activities?",
-  "Do you watch romantic movies?",
-  "Do you enjoy reading books?",
-  "Are you open to long-distance relationships?",
-  "Do you prioritize career over leisure?",
+  "Did you go to a bougie school?",
+  "Do you thrash your body around at concerts?",
+  "Zk puzzles are my friends",
+  "I prefer Le Mans over F1",
+  "I work lift and grind and you eat love pray",
 ];
 
 export default function Index() {
@@ -32,10 +32,12 @@ export default function Index() {
     try {
       // Prepare user address and hash for the API call
       const userAddress = document.getElementById("public-key").value; // Get the user address from input
-      
+
       // Generate the hash array based on the user's answers
-      const hash = QUESTIONS.map((_, index) => answers[index] !== undefined ? answers[index] : "0"); // Default to "0" if no answer is provided
-  
+      const hash = QUESTIONS.map((_, index) =>
+        answers[index] !== undefined ? answers[index] : "0"
+      ); // Default to "0" if no answer is provided
+
       // Send a POST request to /api/set-hash using fetch
       const response = await fetch("/api/set-hash", {
         method: "POST",
@@ -47,15 +49,15 @@ export default function Index() {
           hash,
         }),
       });
-  
+
       // Check if the response is okay (status in the range 200-299)
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-  
+
       // Parse the response data
       const result = await response.json();
-  
+
       // Set response data from the API
       setResponse(result);
     } catch (error) {
@@ -66,7 +68,7 @@ export default function Index() {
   return (
     <div>
       <Layout />
-      <div style={Styles.content}>
+      <div className={pageStyles.stepContainer}>
         <div className={pageStyles.inputContainer}>
           <p>Step 1: Please enter a valid public key.</p>
           <Spacer height="1" />
@@ -106,7 +108,7 @@ export default function Index() {
         <div className={pageStyles.inputContainer}>
           <p>Step 3: Please enter a fee for executing the program.</p>
           <Spacer height="1" />
-          <label htmlFor="fee">Fee</label> 
+          <label htmlFor="fee">Fee</label>
           <Spacer height="1" />
           <input
             type="text"
