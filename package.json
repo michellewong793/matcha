@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "next",
     "build": "next build",
@@ -13,10 +14,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@provablehq/sdk": "^0.7.1",
     "@types/jest": "^29.1.1",
     "@types/node": "^18.8.1",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "core-js": "^3.39.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
     "next": "^12.3.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
