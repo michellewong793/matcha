@@ -20,7 +20,7 @@ export default function Index() {
   return (
     <div style={Styles.appContainer}>
       <Layout />
-      <div style={Styles.content}>
+      <div style={Styles.heroContent}>
         <h1 style={Styles.heroHeading}>find your match-a</h1>
         <p style={Styles.heroText}>
           <i>

@@ -53,9 +53,9 @@ export default function Index() {
       <Layout />
       <div style={Styles.content}>
         <div style={Styles.inputContainer}>
-          <span class="error-message" id="error-message">
+          <p>
             Step 1: Please enter a valid public key.
-          </span>
+          </p>
           <Spacer height="1" />
           <label for="public-key">Public Key</label>
 
@@ -70,10 +70,10 @@ export default function Index() {
         <Spacer height="4" />
 
         <div style={Styles.inputContainer}>
-          <span class="error-message" id="error-message">
+          <p>
             Step 2: Please enter your private key. We don't store this btw, just
             for executing the program.
-          </span>
+          </p>
           <Spacer height="1" />
           <label for="private-key">Private Key</label>
           <input
@@ -87,9 +87,7 @@ export default function Index() {
         <Spacer height="4" />
 
         <div style={Styles.inputContainer}>
-          <span class="error-message" id="error-message">
-            Step 3: Please enter a fee for executing the program.
-          </span>
+          <p>Step 3: Please enter a fee for executing the program.</p>
           <Spacer height="1" />
           <label for="private-key">Fee</label>
           <input
@@ -102,9 +100,7 @@ export default function Index() {
         </div>
         <Spacer height="4" />
 
-        <span class="error-message" id="error-message">
-          Step 2: State your preferences. Let's find your match!
-        </span>
+        <span>Step 2: State your preferences. Let's find your match!</span>
         <Spacer height="1" />
 
         <form

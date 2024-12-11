@@ -2,20 +2,30 @@ let styles = {
   appContainer: {
     color: "white",
   },
+
   matchPageContainer: {
     display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
-    gridTemplateRows: "repeat(3, 1fr)",
-    gap: "10px" /* Space between grid items */,
-    width: "10rem" /* Adjust as needed */,
-    height: "10rem" /* Adjust as needed */,
-    margin: "6rem auto",
+    gridTemplateColumns: "repeat(6, 1fr)",
+    gridTemplateRows: "repeat(6, 1fr)",
+    gap: "4rem" /* Space between grid items */,
+    margin: "0 auto", 
+    maxWidth: "75%",
+    
+   
   },
 
   matchContainer: {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    border: "1px solid white",
+    padding: "1rem",
+    borderRadius: "9px",
+    backgroundColor: "#6BA46A",
+  },
+
+  pinkText: {
+    color: "#EF94E9",
   },
 
   heroHeading: {
@@ -45,11 +55,22 @@ let styles = {
   },
 
   content: {
+    color: "white",
+    paddingLeft: "2rem",
+    paddingRight:"2rem",
     marginTop: "15rem",
-    paddingLeft: "1rem",
-    paddingRight: "1rem",
-    paddingBottom: "1rem",
-    marginBottom: 100,
+    marginBottom: "6rem",
+    textAlign: "center",
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
+
+  heroContent: {
+    color: "white",
+    paddingLeft: "2rem",
+    paddingRight:"2rem",
+    marginTop: "15rem",
+    marginBottom: "6rem",
     textAlign: "center",
     maxWidth: "700px",
     marginLeft: "auto",

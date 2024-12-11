@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Spacer from "./Spacer";
+import { useRouter } from "next/router"; // Import useRouter for route handling
+
 
 
 
@@ -34,14 +36,33 @@ const link = {
   textTransform: "uppercase",
 }
 
-const Header = () => (
-  <div style={header}>
-    <img src="/matchaLogoSmall.svg"/>
-    <a style={link} href="/"> Home</a>
-    <a style={link} href="/submit-score"> Get Started </a>
-    <a style={link} href="/browse-matches"> Browse Matches </a>
-  </div>
-);
+const activeLink = {
+  ...link, // Inherit the existing link styles
+  fontWeight: 'bold', // Add bold style for the active link
+  color: "#EF94E9"
+};
+
+
+const Header = () => {
+  const router = useRouter(); // Get the current route
+
+  return (
+    <div style={header}>
+      <Link href="/">
+      <img src="/matchaLogoSmall.svg"/>
+      </Link>
+      <Link href="/about">
+        <a style={router.pathname === '/submit-score' ? activeLink : link}>About</a>
+      </Link>
+      <Link href="/submit-score">
+        <a style={router.pathname === '/submit-score' ? activeLink : link}>Get Started</a>
+      </Link>
+      <Link href="/browse-matches">
+        <a style={router.pathname === '/browse-matches' ? activeLink : link}>Browse Matches</a>
+      </Link>
+    </div>
+  );
+};
 
 const Layout = () => {
   return (
