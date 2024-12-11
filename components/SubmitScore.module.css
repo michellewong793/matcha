@@ -35,12 +35,12 @@ max-width: 700px;
     font-size: 16px;
     text-transform: uppercase;
     font-weight: bold;
-    align-self:left;
+    align-self:center;
   }
   .inputContainer {
     display: flex;
     flex-direction: column;
-    text-align: left;
+    align-items: center;
   }
 .link {
     color: #EF94E9;

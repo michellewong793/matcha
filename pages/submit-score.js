@@ -135,15 +135,15 @@ export default function Index() {
       <Spacer height="4" />
       <div className={pageStyles.stepContainer}>
         <div className={pageStyles.inputContainer}>
-          <p>Please enter a valid public key.</p>
+          <p>Please enter a valid address.</p>
           <Spacer height="1" />
-          <label htmlFor="public-key">Public Key</label>
+          <label htmlFor="address">Address</label>
           <Spacer height="1" />
           <input
             type="text"
             id="public-key"
             name="public-key"
-            placeholder="Enter your public key"
+            placeholder="Enter your address"
             required
             className={pageStyles.inputbox}
           />

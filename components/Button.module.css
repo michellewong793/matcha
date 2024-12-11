@@ -21,7 +21,7 @@
   }
   
   .button.green:hover {
-    background-color: #A8D49F; /* Darker green on hover */
+    background-color: #64BC44; /* Darker green on hover */
   }
   
   .button.pink {
@@ -30,5 +30,5 @@
   }
   
   .button.pink:hover {
-    background-color: #D68CC2; /* Darker pink on hover */
+    background-color: #FF3CF2; /* Darker pink on hover */
   }
