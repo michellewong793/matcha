@@ -71,18 +71,6 @@ let styles = {
     marginLeft: "auto",
     marginRight: "auto",
   },
-  
-  submitContent: {
-    color: "white",
-    paddingLeft: "2rem",
-    paddingRight:"2rem",
-    marginTop: "15rem",
-    marginBottom: "6rem",
-    textAlign: "center",
-    marginLeft: "auto",
-    marginRight: "auto",
-  },
-
 
   heroContent: {
     color: "white",

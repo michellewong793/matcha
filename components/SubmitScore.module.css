@@ -1,35 +1,12 @@
-.stepContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .inputbox {
     border: 1px solid #ccc;
     border-radius: 4px;
     padding: 8px;
-    width: 30rem;
+    width: 15rem;
     height: 2rem;
-    background-color: lightpink;
-    color: #921598;
   }
 
 
-  .inputLabel { 
-    font-size: 16px;
-    text-transform: uppercase;
-    font-weight: bold;
-    align-self:left;
-  }
-  .inputContainer {
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-  }
-.link {
-    color: #EF94E9;
-    text-decoration: none;
-}
   .questionContainer {
     margin-bottom: 16px;
   }
@@ -97,7 +74,7 @@
 .sliderContainer {
     margin: 0 auto ;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
   }
   
   
@@ -216,7 +193,19 @@
     text-align: center; /* Center text */
   }
   
-  
+  .radioButton {
+    appearance: none; /* Remove default styling */
+    width: 20px; /* Width of the circular radio button */
+    height: 20px; /* Height of the circular radio button */
+    border: 2px solid white; /* Border color */
+    border-radius: 50%; /* Make it circular */
+    position: absolute; /* Position it in the center */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centering */
+    background: transparent; /* Transparent background */
+    cursor: pointer; /* Change cursor to pointer */
+  }
   
   input[type="radio"]:checked + .radioButton {
     background: white; /* Color when selected */
@@ -224,8 +213,4 @@
   
   .radioOption:hover {
     opacity: 0.8; /* Slightly fade on hover */
-  }
-
-  .messageText { 
-    color: lightpink;
   }
