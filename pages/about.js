@@ -2,18 +2,19 @@ import Layout from "../components/Layout";
 import Styles from "../components/Theme";
 import Button from "../components/Button";
 import Spacer from "../components/Spacer";
+
 // Questions
 const QUESTIONS = [
-  "Do you prefer quiet dates?",
-  "Do you like to travel?",
-  "Do you enjoy cooking?",
-  "Do you like pets?",
-  "Do you prefer mornings over nights?",
-  "Do you enjoy outdoor activities?",
-  "Do you watch romantic movies?",
-  "Do you enjoy reading books?",
-  "Are you open to long-distance relationships?",
-  "Do you prioritize career over leisure?",
+  "I like to go outside with my partner",
+  "I like cats",
+  "I like to exercise",
+  "I care about the environment",
+  "I am a skater boy",
+  "I like music",
+  "I am monogamous",
+  "A Volvo is my dream car",
+  "I’m a homebody",
+  "I like to lift weights",
 ];
 
 export default function Index() {
@@ -25,10 +26,19 @@ export default function Index() {
         <Spacer height="4"></Spacer>
         <p style={Styles.heroText}>
           <i>
-           this was made in vegas
+            this was made in vegas in 24 hours
+    on 12/10/2024 - 12/11/2024 
           </i>
+          <p> <i> further work is obv required </i></p>
+          <Spacer height="4"/>
+
+          <p style={Styles.pinkText}> team </p>
+          <Spacer height="1"/>
+          <i>miche - product </i>
+          <i>mia - leo </i>
+          <i>wei - theory </i>
+          <i>niklas - cryptography researcher </i>
         </p>
-       
       </div>
     </div>
   );
