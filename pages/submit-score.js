@@ -1,10 +1,8 @@
-import React, { useState } from "react";
 import Layout from "../components/Layout";
 import Styles from "../components/Theme";
 import Spacer from "../components/Spacer";
+import React, { useState } from "react";
 import pageStyles from "../components/SubmitScore.module.css";
-import Button from "../components/Button";
-import axios from "axios";
 
 const QUESTIONS = [
   "Do you prefer quiet dates?",
@@ -13,13 +11,17 @@ const QUESTIONS = [
   "Do you like pets?",
   "Do you prefer mornings over nights?",
   "Do you enjoy outdoor activities?",
+  "Do you watch romantic movies?",
+  "Do you enjoy reading books?",
+  "Are you open to long-distance relationships?",
+  "Do you prioritize career over leisure?",
 ];
 
 export default function Index() {
   const [answers, setAnswers] = useState({});
   const [response, setResponse] = useState(null);
 
-  const handleRadioChange = (index, value) => {
+  const handleInputChange = (index, value) => {
     setAnswers({
       ...answers,
       [index]: value,
@@ -28,6 +30,7 @@ export default function Index() {
 
   const handleSubmit = async () => {
     try {
+      // Sending user preferences to Aleo network API
       const leoInput = Object.entries(answers).map(([key, value]) => ({
         question: key,
         answer: value,
@@ -38,6 +41,8 @@ export default function Index() {
           preferences: leoInput,
         }
       );
+
+      // Assuming the API returns compatibility mappings
       setResponse(result.data);
     } catch (error) {
       console.error("Error submitting data:", error);
@@ -45,41 +50,10 @@ export default function Index() {
   };
 
   return (
-    <div className={pageStyles.centerPage}>
+    <div>
       <Layout />
-
-      <div style={Styles.content} className={pageStyles.formContainer}>
-        <form
-          className={pageStyles.form}
-          onSubmit={(e) => {
-            e.preventDefault();
-            // handleSubmit();
-          }}
-        >
-          {QUESTIONS.map((question, index) => (
-            <div key={index} className={pageStyles.sliderContainer}>
-              <label>{question}</label>
-              <div className={pageStyles.radioContainer}>
-                {[1, 2, 3, 4, 5, 6].map((value) => (
-                  <label key={value} className={pageStyles.radioOption}>
-                    <input
-                      type="radio"
-                      name={`question-${index}`}
-                      value={value}
-                      checked={answers[index] === value.toString()}
-                      onChange={() => handleRadioChange(index, value)}
-                    />
-                    {value}
-                  </label>
-                ))}
-              </div>
-            </div>
-          ))}
-          <Spacer height="2" />
-
-        </form>
-
-        <div>
+      <div style={Styles.content}>
+        <div className={pageStyles.inputContainer}>
           <p>Step 1: Please enter a valid public key.</p>
           <Spacer height="1" />
           <label htmlFor="public-key">Public Key</label>
@@ -90,14 +64,14 @@ export default function Index() {
             name="public-key"
             placeholder="Enter your public key"
             required
-            className={pageStyles.inputbox}
+            className={pageStyles.inputbox} /* Correct usage */
           />
         </div>
         <Spacer height="4" />
 
-        <div>
+        <div className={pageStyles.inputContainer}>
           <p>
-            Step 2: Please enter your private key. We don't store this, just
+            Step 2: Please enter your private key. We don't store this btw, just
             for executing the program.
           </p>
           <Spacer height="1" />
@@ -110,29 +84,67 @@ export default function Index() {
             name="private-key"
             placeholder="Enter your private key"
             required
-            className={pageStyles.inputbox}
+            className={pageStyles.inputbox} /* Correct usage */
           />
         </div>
         <Spacer height="4" />
 
-        <div>
+        <div className={pageStyles.inputContainer}>
           <p>Step 3: Please enter a fee for executing the program.</p>
           <Spacer height="1" />
-          <label htmlFor="fee">Fee</label>
-          <Spacer height="1" />
+          <label htmlFor="private-key">Fee</label> <Spacer height="1" />
           <input
             type="text"
             id="fee"
             name="fee"
             placeholder="Enter your program fee"
             required
-            className={pageStyles.inputbox}
+            className={pageStyles.inputbox} /* Correct usage */
           />
         </div>
         <Spacer height="4" />
 
-        <Button link="/submit-score" text="Submit" color="green" />
+        <span>Step 2: State your preferences. Let's find your match!</span>
+        <Spacer height="1" />
 
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
+          }}
+        >
+          {QUESTIONS.map((question, index) => (
+            <div key={index}>
+              <label>{question}</label>
+              <div>
+                <label>
+                  <input
+                    type="radio"
+                    name={`question-${index}`}
+                    value={1}
+                    onChange={() => handleInputChange(index, 1)}
+                    required
+                    className={pageStyles.radioButton} /* Correct usage */
+                  />
+                  Yes
+                </label>
+                <label>
+                  <input
+                    type="radio"
+                    name={`question-${index}`}
+                    value={0}
+                    onChange={() => handleInputChange(index, 0)}
+                    className={pageStyles.radioButton} /* Correct usage */
+                  />
+                  No
+                </label>
+              </div>
+            </div>
+          ))}
+          <Spacer height="1" />
+
+          <button type="submit">Submit</button>
+        </form>
       </div>
     </div>
   );

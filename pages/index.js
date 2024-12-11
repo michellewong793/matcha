@@ -27,7 +27,7 @@ export default function Index() {
           find your <span className={homeStyles.wiggle}>match-a</span>
         </h1>{" "}
         <p style={Styles.heroText}>
-          <i>Life is short—find someone special without holding back and preserving privacy</i>
+          <i>Life is short—dare to find your true love without holding back!</i>
         </p>
        
         <Spacer height="4" />
