@@ -1,6 +1,6 @@
 let styles = {
-  body: {
-    fontSize: "14px",
+  appContainer: {
+    backgroundColor: "#3C5642",
   },
   matchPageContainer: {
     display: "grid",
@@ -18,8 +18,17 @@ let styles = {
     alignItems: "center",
   },
 
+  heroHeading: {
+    fontSize: "64px",
+    color: "white"
+  },
+  heroText: {
+    color: "white",
+    fontSize: "54px"
+  },
+
   inputContainer: {
-    width: '50%',
+    width: "50%",
     margin: "0 auto",
     display: "flex",
     flexDirection: "column",
@@ -37,7 +46,7 @@ let styles = {
   },
 
   content: {
-    marginTop: 100,
+    marginTop: "20rem",
     paddingLeft: "1rem",
     paddingRight: "1rem",
     paddingBottom: "1rem",

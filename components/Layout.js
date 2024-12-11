@@ -1,25 +1,18 @@
 import Link from "next/link";
 import Spacer from "./Spacer";
 
-const linkStyle = {
-  marginRight: 15,
-  textDecoration: "none",
-  color: "black",
-};
+
 
 const header = {
   position: "fixed",
   padding: "1rem",
   top: 0,
   left: 0,
-  width: "35rem",
-  height: "1rem",
+  width: "50rem",
   color: "white",
   display: "flex",
   justifyContent: "space-between",
   alignItems:"center"
-
-  
 };
 
 const footer = {
@@ -35,11 +28,14 @@ const footer = {
 };
 
 const link = {
-  textDecoration: 'none'
+  textDecoration: 'none',
+  color: "#ABE895",
+  fontFamily: "Inter",
 }
 
 const Header = () => (
   <div style={header}>
+    <img src="/matchalogo.svg"/>
     <a style={link} href="/"> Home</a>
     <a style={link} href="/submit-score"> Submit your score </a>
     <a style={link} href="/browse-matches"> Browse Matches </a>
