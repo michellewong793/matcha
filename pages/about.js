@@ -25,8 +25,12 @@ export default function Index() {
         <Spacer height="4"></Spacer>
         <p style={Styles.heroText}>
           <i>
-            this project was inspired by how uncomfortable it is to have to put all your
-            info out on the internet to date
+           imagine a future where you can find who you want to find without compromising on privacy
+          </i>
+        </p>
+        <p style={Styles.heroText}>
+          <i>
+          this project was built by matcha team for hack provable 2024 
           </i>
         </p>
         <p style={Styles.heroText}>
